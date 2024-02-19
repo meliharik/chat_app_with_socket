@@ -5,7 +5,10 @@ import postgresClient from "./config/db.js";
 import userRouter from "./routers/userRouter.js";
 
 const app = express();
+
 app.use(express.json());
+
+app.use(express.static("public"));
 
 app.use("/users", userRouter);
 
