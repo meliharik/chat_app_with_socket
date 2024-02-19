@@ -4,7 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const postgresClient = new pg.Pool({
-  connectionString: process.env.DB_CONNECTION_STRING,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export default postgresClient;
